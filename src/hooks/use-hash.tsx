@@ -1,23 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const useHash = () => {
-	const [hash, setHash] = React.useState(window.location.hash);
-	React.useEffect(() => {
-		const onHashChanged = () => setHash(window.location.hash);
-		const { pushState, replaceState } = window.history;
-		window.history.pushState = function (...args) {
-			pushState.apply(window.history, args);
-			setTimeout(() => setHash(window.location.hash));
+	const _window = typeof window !== "undefined" ? window : null;
+
+	const [hash, setHash] = useState(_window?.location?.hash);
+
+	useEffect(() => {
+		const onHashChanged = () => setHash(_window?.location?.hash!);
+
+		const { pushState, replaceState } = _window?.history!;
+
+		// @ts-ignore
+		_window.history.pushState = function (...args) {
+			pushState.apply(_window?.history, args);
+			setTimeout(() => setHash(_window?.location.hash!));
 		};
-		window.history.replaceState = function (...args) {
-			replaceState.apply(window.history, args);
-			setTimeout(() => setHash(window.location.hash));
+		// @ts-ignore
+		_window.history.replaceState = function (...args) {
+			replaceState.apply(_window?.history, args);
+			setTimeout(() => setHash(_window?.location.hash!));
 		};
-		window.addEventListener("hashchange", onHashChanged);
+		// @ts-ignore
+		_window.addEventListener("hashchange", onHashChanged);
 		return () => {
-			window.removeEventListener("hashchange", onHashChanged);
+			_window?.removeEventListener("hashchange", onHashChanged);
 		};
 	}, []);
 	return hash;
