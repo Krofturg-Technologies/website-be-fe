@@ -5,7 +5,7 @@ const RequestAServiceQuote = () => {
 	return (
 		<>
 			<SmallHero
-				title='Reqeust a Service Quote'
+				title='Request a Service Quote'
 				description='At Krofturg, we help businesses strengthen their defenses with tailored risk management, vendor lifecycle management, and cyber resilience solutions.'
 			/>
 			<RequestAServiceQuoteForm />

@@ -70,7 +70,7 @@ const NavigationLink = ({ link, onClick }: NavigationLinkProps) => {
 
 	const pathname = usePathname();
 
-	const isActive = link.href && pathname.includes(link.href);
+	const isActive = link.href && pathname.includes(link.href.split("#")[0]);
 
 	if (link.children) {
 		return (

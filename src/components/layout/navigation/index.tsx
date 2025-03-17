@@ -3,7 +3,6 @@
 import Button from "@/components/global/button";
 import Icons from "@/components/icons";
 import { AnimatePresence } from "framer-motion";
-import { usePathname } from "next/navigation";
 import MobileNavigation from "../mobile-navigation";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -20,7 +19,6 @@ export type NavigationLinkType = {
 };
 
 const Navigation = () => {
-	const pathname = usePathname();
 	const [showMobileNav, setShowMobileNav] = useState(false);
 
 	const links: NavigationLinkType[] = [
