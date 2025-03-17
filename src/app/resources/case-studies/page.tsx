@@ -3,6 +3,7 @@ import { client } from "../../../../contentful/client";
 import CaseStudiesBlock, {
 	CaseStudies,
 } from "@/components/resources/case-studies/case-studies-block";
+import { Metadata } from "next";
 
 export type WebinarResponse = {
 	items: {
@@ -24,3 +25,7 @@ const CaseStudiesPage = async () => {
 };
 
 export default CaseStudiesPage;
+
+export const metadata: Metadata = {
+	title: "Resources | Case Studies",
+};

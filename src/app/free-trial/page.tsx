@@ -1,6 +1,7 @@
 import FreeTrialForm from "@/components/free-trial/free-trial-form";
 import SmallHero from "@/components/global/small-hero";
 import ComparisonPlan from "@/components/pricing/comparison-plan";
+import { Metadata } from "next";
 
 const FreeTrialPage = () => {
 	return (
@@ -16,3 +17,7 @@ const FreeTrialPage = () => {
 };
 
 export default FreeTrialPage;
+
+export const metadata: Metadata = {
+	title: "Free Trial",
+};

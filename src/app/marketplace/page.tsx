@@ -1,5 +1,6 @@
 import SmallHero from "@/components/global/small-hero";
 import JoinMarketplaceForm from "@/components/marketplace/join-marketplace-form";
+import { Metadata } from "next";
 
 const MarketPlacePage = () => {
 	return (
@@ -14,3 +15,7 @@ const MarketPlacePage = () => {
 };
 
 export default MarketPlacePage;
+
+export const metadata: Metadata = {
+	title: "Marketplace",
+};

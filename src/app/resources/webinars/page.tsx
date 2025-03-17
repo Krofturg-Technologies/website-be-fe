@@ -4,6 +4,7 @@ import WebinarsBlock, {
 } from "@/components/resources/webinars/webinars-block";
 import WebinarsHero from "@/components/resources/webinars/webinars-hero";
 import { client } from "../../../../contentful/client";
+import { Metadata } from "next";
 
 export type WebinarResponse = {
 	items: {
@@ -30,3 +31,7 @@ const WebinarsPage = async () => {
 };
 
 export default WebinarsPage;
+
+export const metadata: Metadata = {
+	title: "Resources | Webinars",
+};

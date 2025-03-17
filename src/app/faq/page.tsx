@@ -2,6 +2,7 @@ import FAQSection from "@/components/faq/faq-section";
 import GetToKnowUs from "@/components/faq/faq-section/get-to-know-us";
 import { client } from "../../../contentful/client";
 import { Document } from "@contentful/rich-text-types";
+import { Metadata } from "next";
 
 export type FAQResponse = {
 	items: {
@@ -34,3 +35,7 @@ const FAQPage = async () => {
 };
 
 export default FAQPage;
+
+export const metadata: Metadata = {
+	title: "FAQS",
+};

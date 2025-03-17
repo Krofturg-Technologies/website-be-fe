@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: any) {
 	const fields = response?.items[0]?.fields;
 
 	return {
-		title: " Blog | " + fields?.title,
+		title: " Resources | Blog | " + fields?.title,
 		description: fields?.summary,
 		url:
 			process.env.NEXT_PUBLIC_DOMAIN_WEBSITE_URL +

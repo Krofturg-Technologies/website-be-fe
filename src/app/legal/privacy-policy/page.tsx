@@ -1,4 +1,5 @@
 import LegalContent from "@/components/legal/legal-content";
+import { Metadata } from "next";
 
 const PrivacyPolicyPage = () => {
 	return (
@@ -22,3 +23,7 @@ const PrivacyPolicyPage = () => {
 };
 
 export default PrivacyPolicyPage;
+
+export const metadata: Metadata = {
+	title: "Privacy Policy",
+};

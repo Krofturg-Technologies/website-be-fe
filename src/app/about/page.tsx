@@ -1,8 +1,7 @@
 import AboutHero from "@/components/about/about-hero";
 import OurTeam from "@/components/about/our-team";
 import VisionValues from "@/components/about/vision-values";
-import Partners from "@/components/home/partners";
-import Testimonials from "@/components/home/testimonials";
+import { Metadata } from "next";
 
 const AboutPage = () => {
 	return (
@@ -17,3 +16,7 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+export const metadata: Metadata = {
+	title: "About Us",
+};

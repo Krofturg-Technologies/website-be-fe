@@ -3,6 +3,7 @@ import Blogs from "@/components/resources/blog/blogs";
 import { client } from "../../../../contentful/client";
 import { Suspense } from "react";
 import { Document } from "@contentful/rich-text-types";
+import { Metadata } from "next";
 
 export type Blog = {
 	title: string;
@@ -77,3 +78,7 @@ const BlogPage = async () => {
 };
 
 export default BlogPage;
+
+export const metadata: Metadata = {
+	title: "Resources | Blog",
+};

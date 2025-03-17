@@ -1,4 +1,5 @@
 import LegalContent from "@/components/legal/legal-content";
+import { Metadata } from "next";
 
 const TermsAndConditionsPage = () => {
 	return (
@@ -22,3 +23,7 @@ const TermsAndConditionsPage = () => {
 };
 
 export default TermsAndConditionsPage;
+
+export const metadata: Metadata = {
+	title: "Terms and Conditions",
+};

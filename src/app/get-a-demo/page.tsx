@@ -1,5 +1,6 @@
 import RequestADemoForm from "@/components/demo/request-a-demo-form";
 import SmallHero from "@/components/global/small-hero";
+import { Metadata } from "next";
 
 const DemoPage = () => {
 	return (
@@ -14,3 +15,7 @@ const DemoPage = () => {
 };
 
 export default DemoPage;
+
+export const metadata: Metadata = {
+	title: "Get a Demo",
+};
