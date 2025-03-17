@@ -8,7 +8,7 @@ const Map = () => {
 		{
 			title: "Support",
 			description: "Our friendly team is here to help.",
-			href: "mailto:support@krofturg.com",
+			href: "mailto:info@krofturg.com",
 			icon: <Icons.SupportIcon />,
 		},
 		{
@@ -20,7 +20,7 @@ const Map = () => {
 		{
 			title: "Phone",
 			description: "Mon-Fri from 8am to 5pm.",
-			href: "tel:+1 (555) 000-0000",
+			href: "tel:+37258340947",
 			icon: <Icons.PhoneIcon />,
 		},
 	];

@@ -22,7 +22,7 @@ const Navigation = () => {
 	const [showMobileNav, setShowMobileNav] = useState(false);
 
 	const links: NavigationLinkType[] = [
-		{ href: "/about#about", label: "About Us" },
+		{ href: "/about", label: "About Us" },
 		{
 			label: "Products",
 			href: "/products",
