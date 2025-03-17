@@ -16,7 +16,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
 	title: {
-		default: "Krofturg | Transform Vendor Management with Confidence",
+		default: "Krofturg | Navigating security risks with confidence",
 		template: "Krofturg | %s",
 	},
 	description:
