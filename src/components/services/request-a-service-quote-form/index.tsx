@@ -9,8 +9,8 @@ import { toast } from "react-toastify";
 
 const RequestAServiceQuoteForm = () => {
 	const list = [
-		"Experts in forensics, malware analysis, and incident response, the team works diligently to identify and neutralize security threats",
-		"Leveraging extensive knowledge and advanced tools, our DFIR professionals play a crucial role in minimizing the impact of cyber incidents on organizations",
+		"Customized Cybersecurity Solutions – Designed to meet your business needs.",
+		"Proactive Risk Management – Helping organizations minimize cyber threats before they occur.",
 	];
 
 	const methods = useForm({
@@ -59,13 +59,9 @@ const RequestAServiceQuoteForm = () => {
 						Request a Service Quote
 					</h1>
 					<p className='text-base mt-4 xl:mt-6'>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-						vulputate id ex ut blandit. Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit. Aenean pretium imperdiet ante at eleifend. Nam at
-						consequat turpis. Fusce eget mauris id lacus ultricies finibus.
-						Etiam molestie in felis sed iaculis. Curabitur sollicitudin dolor in
-						nisi finibus dapibus. Nulla facilisi. Proin ante lectus, dictum vel
-						justo ut, laoreet tincidunt nibh.
+						At Krofturg Technologies, we provide tailored risk management, cyber
+						resilience solutions, and vendor lifecycle management to protect
+						your business from security threats.
 					</p>
 					<ul className='mt-4 xl:mt-14 space-y-4'>
 						{list.map((item, index) => {

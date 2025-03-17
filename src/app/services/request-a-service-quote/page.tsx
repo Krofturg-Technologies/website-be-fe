@@ -5,8 +5,8 @@ const RequestAServiceQuote = () => {
 	return (
 		<>
 			<SmallHero
-				title='Lorem ipsum dolor sit amet'
-				description='Krofturg Technologies is a technology company founded in 2024. At Krofturg, we help businesses strengthen their defenses with tailored risk management, vendor lifecycle management, and cyber resilience solutions.'
+				title='Reqeust a Service Quote'
+				description='At Krofturg, we help businesses strengthen their defenses with tailored risk management, vendor lifecycle management, and cyber resilience solutions.'
 			/>
 			<RequestAServiceQuoteForm />
 		</>
