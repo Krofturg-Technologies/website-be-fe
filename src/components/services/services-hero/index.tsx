@@ -17,8 +17,7 @@ const ServicesHero = () => {
 				<div>
 					<div className='text-sm xl:text-base text-grey-400'>Services</div>
 					<h1 className='text-3xl xl:text-4xl font-semibold mt-3 text-grey-900'>
-						Take your Technical capabilities to new heights with Services from
-						Krofturg
+						Take your Technical capabilities to new heights.
 					</h1>
 					<Image
 						width={662}
