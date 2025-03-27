@@ -37,7 +37,7 @@ const RequestADemoForm = () => {
 						questions you have, and show you how our solution can enhance your
 						security posture and compliance efforts.
 					</p>
-					<ul className='mt-4 xl:mt-14 space-y-4'>
+					{/* <ul className='mt-4 xl:mt-14 space-y-4'>
 						{list.map((item, index) => {
 							return (
 								<li key={index} className='flex space-x-3 xl:space-x-6'>
@@ -46,7 +46,7 @@ const RequestADemoForm = () => {
 								</li>
 							);
 						})}
-					</ul>
+					</ul> */}
 				</div>
 				<div>
 					<FormProvider {...methods}>

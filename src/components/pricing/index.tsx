@@ -15,54 +15,51 @@ export const pricing = [
 		titleColor: "text-white",
 		descriptionColor: "text-grey-300",
 		benefits: [
-			[
-				"14-day free trial",
-				"Full access to all VLRM features",
-				"Onboarding guidance",
-				"Limited vendor tracking None",
-			],
-			"⁠⁠Community support.",
+			"14-day free trial with full VLRM access",
+			"Automated vendor onboarding and risk assessments",
+			"Vendor Compliance tracking",
+			"Onboarding guidance and platform walkthrough",
+			"Standard customer support",
 		],
 		cta: "Get Started",
 		href: "/free-trial",
 		buttonType: "outline",
 	},
 	{
-		title: "Enterprise",
+		title: "Enterprise (Full VLRM Suite)",
 		description: "Comprehensive VLRM solution for enterprise-level needs.",
 		benefitsDescription: "Plan includes:",
 		backgroundColor: "bg-[#001B42]",
 		titleColor: "text-white",
 		descriptionColor: "text-grey-300",
 		benefits: [
-			[
-				"Advanced VLRM tools",
-				"⁠Custom vendor management",
-				"⁠Dedicated customer support",
-				"Real-time alerts",
-			],
-			"⁠Teams, Slack, Email, and more.",
-			"Dedicated Success Manager.",
+			"End-to-end vendor lifecycle management (onboarding, risk assessment, vendor evaluation, vendor offboarding)",
+			"Customizable workflows for vendor risk management",
+			"Automated risk scoring and compliance tracking",
+			"Dedicated Success Manager for personalized support",
+			"Real-time alerts & notifications for vendor status changes",
+			"Seamless integrations with Slack, Teams, and enterprise tools",
+			"Advanced reporting & analytics for vendor insights",
+			"Security Questionnaires module included",
 		],
 		cta: "Contact Sales",
 		href: "/contact",
 		buttonType: "outline",
 	},
 	{
-		title: "Get Security Questionnaires",
+		title: "Security Questionnaires (Standalone Assessment Module)",
 		description: "Get started with Supply Chain Risk Management",
 		benefitsDescription: "Plan includes:",
 		backgroundColor: "bg-primary",
 		titleColor: "text-[#001B42]",
 		descriptionColor: "text-grey-600",
 		benefits: [
-			"Simplified access to detailed security assessments.",
-			[
-				"⁠Pre-designed questionnaires for vendor security",
-				"Easy export for compliance reviews",
-			],
-			"⁠Email",
-			"Basic Email Support.",
+			"Access to comprehensive security questionnaires for vendor risk evaluation",
+			"Pre-built templates aligned with ISO 27001, SOC 2, GDPR, and more",
+			"Automated vendor responses tracking for quicker assessments",
+			"Export and share questionnaire responses for audits or internal reviews",
+			"Support for industry-standard frameworks (NIST, ISO, PCI-DSS, etc.)",
+			"Basic support included",
 		],
 		cta: "Get Started",
 		href: "/contact",
@@ -94,7 +91,7 @@ const Pricing = () => {
 									<div
 										className={cn(
 											price.backgroundColor,
-											"px-4 py-5 min-h-36 xl:p-8 rounded-[20px]"
+											"px-4 py-5 min-h-48 xl:p-8 rounded-[20px]"
 										)}>
 										<h4
 											className={cn(
@@ -124,12 +121,14 @@ const Pricing = () => {
 															<div className='w-[calc(100%-24px)]'>
 																{typeof benefit === "string" ? (
 																	<>
-																		<p className='text-grey-600'>{benefit}</p>
+																		<span className='text-grey-600'>
+																			{benefit}
+																		</span>
 																	</>
 																) : (
 																	<>
-																		<ul className='space-y-2'>
-																			{benefit.map((item, index) => {
+																		{/* <ul className='space-y-2'>
+																			{benefit?.map((item, index) => {
 																				return (
 																					<li
 																						key={index}
@@ -138,7 +137,7 @@ const Pricing = () => {
 																					</li>
 																				);
 																			})}
-																		</ul>
+																		</ul> */}
 																	</>
 																)}
 															</div>
