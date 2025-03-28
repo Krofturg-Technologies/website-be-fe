@@ -47,7 +47,7 @@ export const pricing = [
 		buttonType: "outline",
 	},
 	{
-		title: "Security Questionnaires (Standalone Assessment Module)",
+		title: "Security Questionnaires",
 		description: "Get started with Supply Chain Risk Management",
 		benefitsDescription: "Plan includes:",
 		backgroundColor: "bg-primary",
@@ -91,7 +91,7 @@ const Pricing = () => {
 									<div
 										className={cn(
 											price.backgroundColor,
-											"px-4 py-5 min-h-48 xl:p-8 rounded-[20px]"
+											"px-4 py-5 min-h-36 xl:p-8 rounded-[20px]"
 										)}>
 										<h4
 											className={cn(
