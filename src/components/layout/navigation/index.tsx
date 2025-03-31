@@ -72,7 +72,7 @@ const Navigation = () => {
 	];
 
 	const topLinks: NavigationLinkType[] = [
-		{ href: "/login", label: "Login" },
+		// { href: "/login", label: "Login" },
 		{ href: "/contact", label: "Support" },
 		{ href: "/get-a-demo", label: "Get a Demo" },
 	];

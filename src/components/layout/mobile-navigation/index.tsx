@@ -37,12 +37,12 @@ const MobileNavigation = ({ setShowMobileNav, links }: Props) => {
 				</div>
 				<div className='container border-t border-secondary/20'>
 					<div className='mt-6 mb-10 flex flex-col space-y-3'>
-						<a
+						{/* <a
 							onClick={() => setShowMobileNav(false)}
 							href=''
 							className='text-base text-[#667085]'>
 							Login
-						</a>
+						</a> */}
 						<Link
 							onClick={() => setShowMobileNav(false)}
 							href='/contact'

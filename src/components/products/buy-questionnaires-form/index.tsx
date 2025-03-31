@@ -11,7 +11,7 @@ import ReactCountryFlag from "react-country-flag";
 import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
-const FreeTrialForm = () => {
+const BuyQuestionnairesForm = () => {
 	const [searchCountries, setSearchCountries] = useState("");
 
 	const methods = useForm({
@@ -45,9 +45,11 @@ const FreeTrialForm = () => {
 				phone: methods.getValues("phone"),
 				orgName: methods.getValues("orgName"),
 				country: country.name,
-				ref: "trial",
+				ref: "questionnaires",
 			}).unwrap();
-			toast.success("You have successfully joined the free trail waitlist");
+			toast.success(
+				"You have successfully joined the buy questionnaires waitlist"
+			);
 			reset();
 		} catch (error: any) {
 			toast.error(error.data.message);
@@ -59,18 +61,14 @@ const FreeTrialForm = () => {
 			<div className='container grid xl:grid-cols-2 gap-x-24 py-10 xl:py-16'>
 				<div>
 					<h1 className='text-3xl xl:text-3xl font-semibold mt-3 text-grey-900'>
-						Free Trial
+						Buy Securtity Questionnaires
 					</h1>
 					<p className='text-base mt-4 xl:mt-6'>
-						Experience the power of Krofturg Technologies with our{" "}
-						<b>free trial! </b>
-						Get full access to our <b>Vendor Lifecycle Management Tool</b> for a
-						limited time, allowing you to explore how our platform can help you
-						manage risks, streamline vendor assessments, and enhance your cyber
-						resilience. <br /> <br /> No commitments, no hidden fees, just a
-						chance to see how our tool can transform your approach to vendor
-						risk management. Sign up today and start securing your vendors with
-						ease!
+						Simplify and streamline your vendor security assessments with
+						Krofturg's Security Questionnaire. Designed to automate and
+						standardize the process, our solution helps you evaluate third-party
+						security practices efficiently while ensuring compliance with
+						industry standards.
 					</p>
 				</div>
 				<div>
@@ -217,4 +215,4 @@ const FreeTrialForm = () => {
 	);
 };
 
-export default FreeTrialForm;
+export default BuyQuestionnairesForm;

@@ -108,7 +108,7 @@ const ContactHero = () => {
 								disabled={!isValid}
 								isLoading={isLoading}
 								className='w-full'>
-								Get started
+								Contact Us
 							</Button>
 						</div>
 					</form>

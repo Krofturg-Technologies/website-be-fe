@@ -67,7 +67,7 @@ export const productsData = [
 		],
 		primaryCTA: {
 			label: "Buy Security Questionnaires",
-			href: "/get-a-demo",
+			href: "/products/security-questionnaires/buy",
 		},
 		secondaryCTA: {
 			label: "Contact Support",

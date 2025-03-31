@@ -22,6 +22,20 @@ export type ServiceQuoteRequest = {
 
 export type ServiceQuoteResponse = {};
 
+export type JoinWaitlistRequest = {
+	firstName: string;
+	lastName: string;
+	email: string;
+	phone: string;
+	orgName: string;
+	service?: string;
+	country?: string;
+	ref: string; //quote for service quote -- trial for trial -- buy questionaire -- ans so on
+	desc?: string; // If it applies.
+};
+
+export type JoinWaitlistResponse = {};
+
 const postRequest = (url: string, details: unknown) => ({
 	url,
 	method: "POST",
@@ -35,7 +49,10 @@ export const client = createApi({
 	}),
 	endpoints: (builder) => ({
 		contactUs: builder.mutation<ContactUsResponse, ContactUsRequest>({
-			query: (credentials) => postRequest("/contactForm", credentials),
+			query: (credentials) => postRequest("/contactUs", credentials),
+		}),
+		joinWaitlist: builder.mutation<JoinWaitlistResponse, JoinWaitlistRequest>({
+			query: (credentials) => postRequest("/waitlist", credentials),
 		}),
 		requestServiceQuote: builder.mutation<
 			ServiceQuoteResponse,
@@ -46,4 +63,8 @@ export const client = createApi({
 	}),
 });
 
-export const { useContactUsMutation, useRequestServiceQuoteMutation } = client;
+export const {
+	useContactUsMutation,
+	useRequestServiceQuoteMutation,
+	useJoinWaitlistMutation,
+} = client;
