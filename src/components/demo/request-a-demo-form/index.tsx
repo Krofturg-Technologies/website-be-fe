@@ -3,7 +3,6 @@
 import Button from "@/components/global/button";
 import Input from "@/components/global/Input";
 import SelectInput from "@/components/global/SelectInput";
-import Icons from "@/components/icons";
 import { countriesData, Country } from "@/data/countriesData";
 import { useJoinWaitlistMutation } from "@/services/client";
 import { CheckCheckIcon, SearchIcon } from "lucide-react";
@@ -14,11 +13,6 @@ import { toast } from "react-toastify";
 
 const RequestADemoForm = () => {
 	const [searchCountries, setSearchCountries] = useState("");
-
-	const list = [
-		"Experts in forensics, malware analysis, and incident response, the team works diligently to identify and neutralize security threats.",
-		"Leveraging extensive knowledge and advanced tools, our DFIR professionals play a crucial role in minimizing the impact of cyber incidents on organizations.",
-	];
 
 	const methods = useForm({
 		mode: "onChange",
@@ -78,16 +72,6 @@ const RequestADemoForm = () => {
 						questions you have, and show you how our solution can enhance your
 						security posture and compliance efforts.
 					</p>
-					{/* <ul className='mt-4 xl:mt-14 space-y-4'>
-						{list.map((item, index) => {
-							return (
-								<li key={index} className='flex space-x-3 xl:space-x-6'>
-									<Icons.CubeIcon />
-									<p className='w-[calc(100%-24px)]'>{item}</p>
-								</li>
-							);
-						})}
-					</ul> */}
 				</div>
 				<div>
 					<FormProvider {...methods}>
