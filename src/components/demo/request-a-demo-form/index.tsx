@@ -3,7 +3,6 @@
 import Button from "@/components/global/button";
 import Input from "@/components/global/Input";
 import SelectInput from "@/components/global/SelectInput";
-import Icons from "@/components/icons";
 import { countriesData, Country } from "@/data/countriesData";
 import { useJoinWaitlistMutation } from "@/services/client";
 import { CheckCheckIcon, SearchIcon } from "lucide-react";
