@@ -30,6 +30,7 @@ const RequestAServiceQuoteForm = () => {
 			desc: "",
 			orgName: "",
 			country: null! as Country,
+			service: "",
 		},
 	});
 
@@ -51,7 +52,7 @@ const RequestAServiceQuoteForm = () => {
 				email: methods.getValues("email"),
 				phone: methods.getValues("phone"),
 				orgName: methods.getValues("orgName"),
-				service: "DFIR",
+				service: methods.getValues("service"),
 				country: country.name,
 			}).unwrap();
 			toast.success("Request sent successfully");

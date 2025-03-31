@@ -2,10 +2,19 @@
 
 import Button from "@/components/global/button";
 import Input from "@/components/global/Input";
+import SelectInput from "@/components/global/SelectInput";
 import Icons from "@/components/icons";
+import { countriesData, Country } from "@/data/countriesData";
+import { useJoinWaitlistMutation } from "@/services/client";
+import { CheckCheckIcon, SearchIcon } from "lucide-react";
+import { useState } from "react";
+import ReactCountryFlag from "react-country-flag";
 import { FormProvider, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const RequestADemoForm = () => {
+	const [searchCountries, setSearchCountries] = useState("");
+
 	const list = [
 		"Experts in forensics, malware analysis, and incident response, the team works diligently to identify and neutralize security threats.",
 		"Leveraging extensive knowledge and advanced tools, our DFIR professionals play a crucial role in minimizing the impact of cyber incidents on organizations.",
@@ -13,14 +22,46 @@ const RequestADemoForm = () => {
 
 	const methods = useForm({
 		mode: "onChange",
-		defaultValues: {},
+		defaultValues: {
+			firstName: "",
+			lastName: "",
+			email: "",
+			phone: "",
+			desc: "",
+			orgName: "",
+			country: null! as Country,
+			service: "",
+		},
 	});
 
 	const {
+		watch,
 		formState: { errors, isValid },
+		reset,
 	} = methods;
 
-	const onSubmit = async () => {};
+	const country = watch("country") as Country;
+
+	const [joinWaitlist, { isLoading }] = useJoinWaitlistMutation();
+
+	const onSubmit = async () => {
+		try {
+			const result = await joinWaitlist({
+				firstName: methods.getValues("firstName"),
+				lastName: methods.getValues("lastName"),
+				email: methods.getValues("email"),
+				phone: methods.getValues("phone"),
+				orgName: methods.getValues("orgName"),
+				service: methods.getValues("service"),
+				country: country.name,
+				ref: "demo",
+			}).unwrap();
+			toast.success("Request sent successfully");
+			reset();
+		} catch (error: any) {
+			toast.error(error.data.message);
+		}
+	};
 
 	return (
 		<section>
@@ -83,18 +124,114 @@ const RequestADemoForm = () => {
 								<Input
 									name='phone'
 									label='Phone number'
-									rules={["required", "phone"]}
+									rules={["required"]}
 									placeholder='Phone'
 								/>
 								<Input
+									name='service'
+									label='Service'
+									rules={["required"]}
+									placeholder='What service are you requesting for?'
+								/>
+								<SelectInput
 									name='country'
 									label='Country'
-									rules={["required"]}
-									placeholder='Country'
+									required
+									position='top'
+									onDropdownClose={() => setSearchCountries("")}
+									trigger={(selected: Country) => {
+										return (
+											<div className='flex h-min bg-transparent items-center space-x-1'>
+												{selected?.name ? (
+													<>
+														<div className='w-6 h-6 flex justify-center items-center rounded-full overflow-hidden'>
+															<ReactCountryFlag
+																className='text-2xl'
+																countryCode={selected.iso}
+																svg
+																cdnUrl='https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/'
+																cdnSuffix='svg'
+																title={selected.name}
+																aria-label={selected.name}
+															/>
+														</div>
+														<div className='text-[#667085]'>
+															{selected?.name}
+														</div>
+													</>
+												) : (
+													<div className='text-sm mt-[2px] text-tc-secondary'>
+														Select your country
+													</div>
+												)}
+											</div>
+										);
+									}}
+									options={countriesData.filter((country) =>
+										JSON.stringify(country)
+											.toLowerCase()
+											.includes(searchCountries.replace("+", "").toLowerCase())
+									)}
+									optionsHeader={
+										<div className='p-4 w-full bg-white border-b border-pc-03'>
+											<div className='flex items-center space-x-2 p-2 w-fit border border-pc-03 bg-pc-01 rounded-lg'>
+												<SearchIcon color='' />
+												<input
+													className='outline-none bg-transparent text-sm text-tc-secondary'
+													type='search'
+													placeholder='Search countries'
+													value={searchCountries}
+													onChange={(e) => setSearchCountries(e.target.value)}
+												/>
+											</div>
+										</div>
+									}
+									optionComponent={(
+										option: Country,
+										selectedOption: Country
+									) => {
+										return (
+											<div
+												className={`py-3 w-full px-4 flex items-center space-x-5 text-tc-main hover:bg-pc-01 ${
+													selectedOption?.name === option?.name
+														? "bg-pc-01"
+														: ""
+												}`}>
+												<div className='w-full flex items-center space-x-1'>
+													<div className='w-6 h-6 flex justify-center items-center rounded-full overflow-hidden'>
+														<ReactCountryFlag
+															className='text-2xl'
+															countryCode={option.iso}
+															svg
+															cdnUrl='https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/'
+															cdnSuffix='svg'
+															title={option.name}
+															aria-label={option.name}
+														/>
+													</div>
+													<div>{option.name}</div>
+												</div>
+
+												{selectedOption?.name === option?.name && (
+													<div>
+														<CheckCheckIcon color='#00EAA3' />
+													</div>
+												)}
+											</div>
+										);
+									}}
 								/>
 							</div>
+							<div className='mt-8'>
+								<Button
+									type='submit'
+									disabled={!isValid}
+									isLoading={isLoading}
+									className='w-full'>
+									Join Waitlist
+								</Button>
+							</div>
 						</form>
-						<Button className='w-full'>Request a Demo</Button>
 					</FormProvider>
 				</div>
 			</div>
