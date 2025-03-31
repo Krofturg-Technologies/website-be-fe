@@ -11,6 +11,11 @@ import ReactCountryFlag from "react-country-flag";
 import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
+type Option = {
+	name: string;
+	value: string;
+};
+
 const RequestADemoForm = () => {
 	const [searchCountries, setSearchCountries] = useState("");
 
@@ -24,7 +29,7 @@ const RequestADemoForm = () => {
 			desc: "",
 			orgName: "",
 			country: null! as Country,
-			service: "",
+			service: null! as Option,
 		},
 	});
 
@@ -36,6 +41,8 @@ const RequestADemoForm = () => {
 
 	const country = watch("country") as Country;
 
+	const service = watch("service") as unknown as Option;
+
 	const [joinWaitlist, { isLoading }] = useJoinWaitlistMutation();
 
 	const onSubmit = async () => {
@@ -46,7 +53,7 @@ const RequestADemoForm = () => {
 				email: methods.getValues("email"),
 				phone: methods.getValues("phone"),
 				orgName: methods.getValues("orgName"),
-				service: methods.getValues("service"),
+				service: service.value,
 				country: country.name,
 				ref: "demo",
 			}).unwrap();
@@ -56,6 +63,11 @@ const RequestADemoForm = () => {
 			toast.error(error.data.message);
 		}
 	};
+
+	const services = [
+		"⁠Vendor Lifecycle & Risk Management",
+		"Security Questionnaires",
+	];
 
 	return (
 		<section>
@@ -111,11 +123,48 @@ const RequestADemoForm = () => {
 									rules={["required"]}
 									placeholder='Phone'
 								/>
-								<Input
+								<SelectInput
 									name='service'
 									label='Service'
-									rules={["required"]}
-									placeholder='What service are you requesting for?'
+									required
+									position='top'
+									trigger={(selected) => {
+										return (
+											<div className='flex h-min bg-transparent items-center space-x-1'>
+												{selected?.name ? (
+													<div className='text-[#667085]'>{selected?.name}</div>
+												) : (
+													<div className='mt-[2px] text-tc-secondary'>
+														Select a service
+													</div>
+												)}
+											</div>
+										);
+									}}
+									options={services.map((service) => ({
+										name: service,
+										value: service,
+									}))}
+									optionComponent={(option, selectedOption) => {
+										return (
+											<div
+												className={`py-3 w-full px-4 flex items-center space-x-5 text-tc-main hover:bg-pc-01 ${
+													selectedOption?.name === option?.name
+														? "bg-pc-01"
+														: ""
+												}`}>
+												<div className='w-full flex items-center space-x-1'>
+													<div>{option.name}</div>
+												</div>
+
+												{selectedOption?.name === option?.name && (
+													<div>
+														<CheckCheckIcon color='#00EAA3' />
+													</div>
+												)}
+											</div>
+										);
+									}}
 								/>
 								<SelectInput
 									name='country'
@@ -144,7 +193,7 @@ const RequestADemoForm = () => {
 														</div>
 													</>
 												) : (
-													<div className='text-sm mt-[2px] text-tc-secondary'>
+													<div className='mt-[2px] text-tc-secondary'>
 														Select your country
 													</div>
 												)}

@@ -258,7 +258,7 @@ const Input = ({
 			</span>
 			<input
 				{...register}
-				className={`w-full active:border-primary text-[#667085] focus:bg-pc-02 ${inputTheme(
+				className={`w-full active:border-primary text-[#667085] ${inputTheme(
 					theme
 				)} text-sm xl:text-base h-12 overflow-hidden font-normal rounded-lg outline-none ${className} ${
 					type === "password" ? "pr-16" : ""

@@ -62,7 +62,7 @@ export const Select = <T,>({
 				<label>
 					<div
 						className={cn(
-							"w-full font-medium text-sm h-5 text-tc-main capitalize tracking-tight text-left mb-2",
+							"w-full font-semibold text-base text-left leading-5 text-[#344054] mb-1.5",
 							disabled
 								? "pointer-events-none cursor-not-allowed"
 								: "cursor-pointer"
@@ -98,7 +98,7 @@ export const Select = <T,>({
 						{
 							"bg-pc-02": showDropdown,
 							"border-status-error-100 focus:border-status-error-100": errors,
-							"border border-[#83819729]": disabled,
+							"border border-[#D0D5DD]": disabled,
 						},
 						className
 					)}>

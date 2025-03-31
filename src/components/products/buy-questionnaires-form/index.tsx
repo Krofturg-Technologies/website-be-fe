@@ -136,7 +136,7 @@ const BuyQuestionnairesForm = () => {
 														</div>
 													</>
 												) : (
-													<div className='text-sm mt-[2px] text-tc-secondary'>
+													<div className='mt-[2px] text-tc-secondary'>
 														Select your country
 													</div>
 												)}
