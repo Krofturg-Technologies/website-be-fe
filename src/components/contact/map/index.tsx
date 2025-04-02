@@ -20,7 +20,7 @@ const Map = () => {
 		{
 			title: "Phone",
 			description: "Mon-Fri from 8am to 5pm.",
-			href: "tel:+37258340947",
+			href: "tel:+37258972732",
 			icon: <Icons.PhoneIcon />,
 		},
 	];
