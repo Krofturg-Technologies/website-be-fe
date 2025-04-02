@@ -74,17 +74,17 @@ const Footer = () => {
 		{
 			title: "LinkedIn",
 			icon: <Icons.LinkedInIcon />,
-			href: "",
+			href: "https://www.linkedin.com/company/krofturg-technologies/",
 		},
 		{
 			title: "Instagram",
 			icon: <Icons.InstagramIcon />,
-			href: "",
+			href: "https://www.instagram.com/krofturg/",
 		},
 		{
 			title: "X",
 			icon: <Icons.XIcon />,
-			href: "",
+			href: "https://x.com/krofturg",
 		},
 	];
 
@@ -116,11 +116,14 @@ const Footer = () => {
 										return (
 											<li key={link.name}>
 												<Link
-													className={cn("text-xs text-gray-400", {
-														"text-primary font-medium": (
-															pathname + hash || ""
-														).includes(link.href),
-													})}
+													className={cn(
+														"text-xs hover:text-grey-200 transition-all text-gray-400",
+														{
+															"text-primary font-medium": (
+																pathname + hash || ""
+															).includes(link.href),
+														}
+													)}
 													href={link.href}>
 													{link.name}
 												</Link>
