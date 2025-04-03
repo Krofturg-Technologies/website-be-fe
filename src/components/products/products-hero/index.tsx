@@ -24,8 +24,8 @@ const ProductsHero = () => {
 						width={662}
 						height={500}
 						alt=''
-						src='/assets/images/products-hero.webp'
-						className='w-full xl:hidden mt-4'
+						src={data?.image}
+						className='w-full xl:hidden mt-8'
 					/>
 					<p className='text-base mt-4 xl:mt-6'>{data?.description}</p>
 					<p className='text-base mt-4 xl:mt-6'>Key Features:</p>
