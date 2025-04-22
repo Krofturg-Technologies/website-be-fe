@@ -8,6 +8,7 @@ import { ViewTransitions } from "next-view-transitions";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProviderWrapper from "@/store/provider-wrapper";
+import CookiesBanner from "@/components/global/cookies-banner";
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -53,6 +54,7 @@ export default function RootLayout({
 						<ToastContainer closeButton={false} position='bottom-center' />
 						<Navigation />
 						<main className='pt-16 xl:pt-[140px]'>{children}</main>
+						<CookiesBanner />
 						<Footer />
 					</ProviderWrapper>
 				</body>

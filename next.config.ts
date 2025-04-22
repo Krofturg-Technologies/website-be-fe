@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
 					},
 					{
 						key: "Content-Security-Policy",
-						value: "default-src 'self'; frame-ancestors 'none';", // Sets CSP
+						value: "frame-ancestors 'none';", // Sets CSP
 					},
 					{
 						key: "Strict-Transport-Security",
