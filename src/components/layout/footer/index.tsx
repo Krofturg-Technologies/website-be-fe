@@ -158,7 +158,8 @@ const Footer = () => {
 						confidence.
 					</div>
 					<div>
-						Copyright ©️ 2024 Krofturg Technologies. All Rights Reserved
+						Copyright ©️ {new Date().getFullYear()} Krofturg Technologies. All
+						Rights Reserved
 					</div>
 				</div>
 			</div>

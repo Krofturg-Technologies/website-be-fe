@@ -9,6 +9,31 @@ const nextConfig: NextConfig = {
 			},
 		],
 	},
+	async headers() {
+		return [
+			{
+				source: "/:path*",
+				headers: [
+					{
+						key: "X-Frame-Options",
+						value: "DENY", // Prevents clickjacking
+					},
+					{
+						key: "Content-Security-Policy",
+						value: "default-src 'self'; frame-ancestors 'none';", // Sets CSP
+					},
+					{
+						key: "Strict-Transport-Security",
+						value: "max-age=63072000; includeSubDomains; preload", // Enables HSTS
+					},
+					{
+						key: "X-Content-Type-Options",
+						value: "nosniff", // Prevents MIME type sniffing
+					},
+				],
+			},
+		];
+	},
 	/* config options here */
 	webpack(config) {
 		// Grab the existing rule that handles SVG imports

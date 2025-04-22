@@ -125,7 +125,7 @@ const RequestADemoForm = () => {
 								/>
 								<SelectInput
 									name='service'
-									label='Service'
+									label='Product'
 									required
 									position='top'
 									trigger={(selected) => {
@@ -135,7 +135,7 @@ const RequestADemoForm = () => {
 													<div className='text-[#667085]'>{selected?.name}</div>
 												) : (
 													<div className='mt-[2px] text-tc-secondary'>
-														Select a service
+														Select a product
 													</div>
 												)}
 											</div>
