@@ -14,8 +14,6 @@ const BlogDetailsPage = async ({ params }: any) => {
 		"fields.slug": params?.id,
 	});
 
-	const options = {};
-
 	const blog = response?.items[0]?.fields;
 
 	return (
