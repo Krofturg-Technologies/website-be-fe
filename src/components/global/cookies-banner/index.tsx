@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Cookies from "js-cookie";
 import Button from "../button";
 import Icons from "@/components/icons";
+import { Link } from "next-view-transitions";
 
 const CookiesBanner = () => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -34,7 +35,7 @@ const CookiesBanner = () => {
 					initial={{ y: "100%" }}
 					animate={{ y: 0 }}
 					exit={{ y: "100%" }}
-					transition={{ duration: 0.5 }}>
+					transition={{ duration: 0.3 }}>
 					<div className='relative'>
 						<button
 							onClick={() => setIsVisible(false)}
@@ -51,7 +52,12 @@ const CookiesBanner = () => {
 									that is able to read, write and store information on your
 									browser and device for the purpose of enhancing your user
 									experience. By clicking “Allow”, you consent to our use of
-									cookies in accordance with our Cookie Policy
+									cookies in accordance with our{" "}
+									<Link
+										href='/legal/privacy-policy'
+										className='text-primary font-medium'>
+										Privacy Policy
+									</Link>
 								</p>
 							</div>
 							<div className='max-xl:space-y-3 xl:flex xl:space-x-3'>
