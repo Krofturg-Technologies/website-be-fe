@@ -42,7 +42,7 @@ const ServicesList = () => {
 			],
 		},
 		{
-			title: "Cyber Strategy and Governance Development)",
+			title: "Cyber Strategy and Governance Development",
 			id: "cyber-strategy",
 			description:
 				"Develop a robust cybersecurity strategy with our expert guidance. Krofturg assists organizations in building governance frameworks that ensure accountability, compliance, and resilience in a rapidly changing cyber environment.",
