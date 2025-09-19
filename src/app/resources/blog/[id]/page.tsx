@@ -1,6 +1,9 @@
+"use cache";
+
 import BlogDetails from "@/components/resources/blog/blog-details";
 import { Blog, BlogResponse } from "../page";
 import { client } from "../../../../../contentful/client";
+import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 type BlogDetailsResponse = {
 	items: {
@@ -15,6 +18,8 @@ const BlogDetailsPage = async ({ params }: any) => {
 	});
 
 	const blog = response?.items[0]?.fields;
+
+	cacheLife("minutes");
 
 	return (
 		<>

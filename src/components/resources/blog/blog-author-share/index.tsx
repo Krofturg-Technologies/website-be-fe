@@ -74,8 +74,8 @@ const BlogAuthorShare = ({ blog }: { blog: Blog }) => {
 							return (
 								<div
 									className='border border-grey-900 text-sm font-medium text-gray-900 rounded-lg py-2 px-3.5'
-									key={category.fields.slug}>
-									{category.fields.categoryName}
+									key={category.fields?.slug}>
+									{category.fields?.categoryName}
 								</div>
 							);
 						})}

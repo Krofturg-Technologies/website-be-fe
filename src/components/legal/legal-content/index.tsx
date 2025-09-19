@@ -1,6 +1,9 @@
+"use cache";
+
 import { client } from "../../../../contentful/client";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Document } from "@contentful/rich-text-types";
+import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 export type LegalResponse = {
 	items: {
@@ -16,6 +19,8 @@ const LegalContent = async ({ id }: { id: string }) => {
 	});
 
 	const options = {};
+
+	cacheLife("minutes");
 
 	return (
 		<article className='w-fit mt-8 xl:mt-16'>

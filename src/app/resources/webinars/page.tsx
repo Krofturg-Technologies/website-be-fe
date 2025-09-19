@@ -1,3 +1,5 @@
+"use cache";
+
 import HaveQuestions from "@/components/faq/have-questions";
 import WebinarsBlock, {
 	Webinar,
@@ -5,6 +7,7 @@ import WebinarsBlock, {
 import WebinarsHero from "@/components/resources/webinars/webinars-hero";
 import { client } from "../../../../contentful/client";
 import { Metadata } from "next";
+import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 export type WebinarResponse = {
 	items: {
@@ -16,6 +19,8 @@ const WebinarsPage = async () => {
 	const response: WebinarResponse = await client?.getEntries({
 		content_type: "webinar",
 	});
+
+	cacheLife("minutes");
 
 	return (
 		<>

@@ -44,17 +44,19 @@ const Blogs = ({ blogs, categories }: Blog) => {
 						</li>
 						{categories.map((category) => {
 							return (
-								<li key={category.fields.slug} className=''>
+								<li key={category.fields?.slug} className='w-full'>
 									<Link
-										href={pathname + "?category=" + category.fields.slug}
+										href={pathname + "?category=" + category.fields?.slug}
 										className={cn(
-											"px-4 block text-xs xl:text-base whitespace-nowrap py-1 max-xl:rounded-xl xl:py-3 text-left w-full",
+											"px-4 block text-xs xl:text-base py-1 max-xl:rounded-xl xl:py-3 text-left",
 											{
 												"bg-primary font-medium":
-													query.get("category") === category.fields.slug,
+													query.get("category") === category.fields?.slug,
 											}
 										)}>
-										{category.fields.categoryName}
+										<div className='line-clamp-1 '>
+											{category.fields?.categoryName}
+										</div>
 									</Link>
 								</li>
 							);
@@ -62,56 +64,59 @@ const Blogs = ({ blogs, categories }: Blog) => {
 					</ul>
 				</div>
 				<div className='col-span-4'>
-					<article className='max-xl:bg-[#F9FAFB] rounded-2xl'>
-						<Image
-							width={1008}
-							height={450}
-							src={"https:" + blogs[0].fields.image.fields.file.url}
-							alt=''
-							className='w-full hidden xl:block rounded-2xl'
-						/>
-						<Image
-							width={488}
-							height={224}
-							src={"https:" + blogs[0].fields.image.fields.file.url}
-							alt=''
-							className='w-full xl:hidden rounded-2xl'
-						/>
-						<div className='max-xl:p-3'>
-							<div className='xl:mt-6 xl:flex overflow-x-auto items-center xl:space-x-4'>
-								{blogs[0].fields.categories.length > 0 && (
-									<div className='flex items-center space-x-3'>
-										{blogs[0].fields.categories?.map((category) => {
-											return (
-												<div
-													className='px-2.5 rounded-lg bg-[#F4F4F4] py-2 text-xs whitespace-nowrap xl:text-sm font-semibold text-black'
-													key={category.fields.slug}>
-													{category.fields.categoryName}
-												</div>
-											);
-										})}
+					<Link href={`blog/${blogs[0].fields.slug}`}>
+						<article className='max-xl:bg-[#F9FAFB] rounded-2xl'>
+							<Image
+								width={1008}
+								height={450}
+								src={"https:" + blogs[0].fields.image.fields.file.url}
+								alt=''
+								className='w-full hidden xl:block object-cover max-h-[700px] rounded-2xl'
+							/>
+							<Image
+								width={488}
+								height={224}
+								src={"https:" + blogs[0].fields.image.fields.file.url}
+								alt=''
+								className='w-full xl:hidden rounded-2xl'
+							/>
+							<div className='max-xl:p-3'>
+								<div className='xl:mt-6 xl:flex overflow-x-auto items-center xl:space-x-4'>
+									{blogs[0].fields.categories.length > 0 && (
+										<div className='flex items-center space-x-3'>
+											{blogs[0].fields.categories?.map((category) => {
+												return (
+													<div
+														className='px-2.5 rounded-lg bg-[#F4F4F4] py-2 text-xs whitespace-nowrap xl:text-sm font-semibold text-black'
+														key={
+															category.fields?.slug +
+															category.fields?.categoryName
+														}>
+														{category.fields?.categoryName}
+													</div>
+												);
+											})}
+										</div>
+									)}
+									<div className='text-xs xl:text-sm max-xl:mt-3 text-black'>
+										{blogs[0].fields.readTimeInMinutes} mins read
 									</div>
-								)}
-								<div className='text-xs xl:text-sm max-xl:mt-3 text-black'>
-									{blogs[0].fields.readTimeInMinutes} mins read
 								</div>
-							</div>
-							<h2 className='mt-4 font-semibold capitalize text-grey-900 text-2xl xl:text-4xl'>
-								{blogs[0].fields.title?.toLowerCase()}
-							</h2>
-							<p className='text-sm xl:text-base mt-2 mb-6 text-grey-600 line-clamp-2'>
-								{blogs[0].fields.summary}
-							</p>
-							<Link href={`blog/${blogs[0].fields.slug}`}>
+								<h2 className='mt-4 font-semibold capitalize text-grey-900 text-2xl xl:text-4xl'>
+									{blogs[0].fields.title?.toLowerCase()}
+								</h2>
+								<p className='text-sm xl:text-base mt-2 mb-6 text-grey-600 line-clamp-2'>
+									{blogs[0].fields.summary}
+								</p>
 								<Button className='text-secondary max-xl:w-full bg-[#F4F9FF]'>
 									<div className='flex items-center space-x-2'>
 										<span>Read More</span>
 										<Icons.ArrowIcon />
 									</div>
 								</Button>
-							</Link>
-						</div>
-					</article>
+							</div>
+						</article>
+					</Link>
 					<motion.div
 						layout
 						className='grid xl:grid-cols-2 mt-10 gap-x-8 gap-y-10'>
@@ -121,7 +126,8 @@ const Blogs = ({ blogs, categories }: Blog) => {
 								(blog) =>
 									!query.get("category") ||
 									blog.fields.categories.find(
-										(category) => category.fields.slug === query.get("category")
+										(category) =>
+											category.fields?.slug === query.get("category")
 									)
 							)
 							.map((blog) => {
@@ -150,11 +156,11 @@ const Blogs = ({ blogs, categories }: Blog) => {
 																			{
 																				"bg-primary":
 																					query.get("category") ===
-																					category.fields.slug,
+																					category.fields?.slug,
 																			}
 																		)}
-																		key={category.fields.slug}>
-																		{category.fields.categoryName}
+																		key={category.fields?.slug}>
+																		{category.fields?.categoryName}
 																	</div>
 																);
 															})}

@@ -34,7 +34,7 @@ const BlogDetails = ({ blog }: BlogDetailsType) => {
 					height={700}
 					src={"https:" + blog.image.fields.file.url}
 					alt=''
-					className='w-full mt-10 rounded-[20px] xl:mt-16'
+					className='w-full mt-10 max-h-[750px] object-cover rounded-[20px] xl:mt-16'
 				/>
 				<div className='prose mx-auto mt-8 xl:mt-24 text-body'>
 					{documentToReactComponents(blog?.body, {})}

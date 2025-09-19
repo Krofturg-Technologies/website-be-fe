@@ -1,9 +1,12 @@
+"use cache";
+
 import BlogSection from "@/components/resources/blog/blog-section";
 import Blogs from "@/components/resources/blog/blogs";
 import { client } from "../../../../contentful/client";
 import { Suspense } from "react";
 import { Document } from "@contentful/rich-text-types";
 import { Metadata } from "next";
+import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 export type Blog = {
 	title: string;
@@ -66,6 +69,8 @@ const BlogPage = async () => {
 	const categoriesResponse = await client?.getEntries({
 		content_type: "blogCategory",
 	});
+
+	cacheLife("minutes");
 
 	return (
 		<>
