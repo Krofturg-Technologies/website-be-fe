@@ -26,10 +26,10 @@ const Blogs = ({ blogs, categories }: Blog) => {
 
 	return (
 		<section className='mb-8 xl:mb-16'>
-			<div className='container grid xl:grid-cols-5 xl:gap-x-10'>
-				<div>
+			<div className='container xl:grid xl:grid-cols-5 xl:gap-x-10'>
+				<div className='w-full'>
 					<h4 className='text-black text-2xl font-semibold'>Blog categories</h4>
-					<ul className='mt-3 xl:mt-6 max-xl:mb-3 max-xl:flex max-xl:w-[calc(100vw-32px)] items-center max-xl:overflow-x-auto max-xl:space-x-2'>
+					<ul className='mt-3 xl:mt-6 block max-xl:mb-3 max-xl:flex items-center max-xl:!w-full max-xl:overflow-x-auto max-xl:space-x-2'>
 						<li className=''>
 							<Link
 								href={pathname}
@@ -54,7 +54,7 @@ const Blogs = ({ blogs, categories }: Blog) => {
 													query.get("category") === category.fields?.slug,
 											}
 										)}>
-										<div className='line-clamp-1 '>
+										<div className='xl:line-clamp-1 max-xl:whitespace-nowrap'>
 											{category.fields?.categoryName}
 										</div>
 									</Link>
@@ -78,12 +78,12 @@ const Blogs = ({ blogs, categories }: Blog) => {
 								height={224}
 								src={"https:" + blogs[0].fields.image.fields.file.url}
 								alt=''
-								className='w-full xl:hidden rounded-2xl'
+								className='w-full overflow-hidden object-cover max-h-[700px] xl:hidden rounded-2xl'
 							/>
 							<div className='max-xl:p-3'>
-								<div className='xl:mt-6 xl:flex overflow-x-auto items-center xl:space-x-4'>
+								<div className='xl:mt-6 xl:flex overflow-x-auto items-center xl:gap-4'>
 									{blogs[0].fields.categories.length > 0 && (
-										<div className='flex items-center space-x-3'>
+										<div className='flex items-center gap-3 flex-wrap'>
 											{blogs[0].fields.categories?.map((category) => {
 												return (
 													<div
@@ -142,12 +142,12 @@ const Blogs = ({ blogs, categories }: Blog) => {
 												height={224}
 												src={"https:" + blog.fields.image.fields.file.url}
 												alt=''
-												className='w-full rounded-2xl'
+												className='w-full max-h-[700px] rounded-2xl'
 											/>
 											<div className='p-3 xl:p-5'>
-												<div className='xl:flex items-center xl:space-x-4 flex-wrap'>
+												<div className='xl:flex items-center xl:gap-4 flex-wrap'>
 													{blog.fields.categories.length > 0 && (
-														<div className='flex items-center space-x-3'>
+														<div className='flex items-center gap-3 flex-wrap'>
 															{blog.fields.categories?.map((category) => {
 																return (
 																	<div
