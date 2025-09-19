@@ -225,6 +225,7 @@ const JoinMarketplaceForm = () => {
 									}}
 								/>
 							</div>
+
 							<div className='mt-8'>
 								<Button
 									type='submit'
